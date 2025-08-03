@@ -15,14 +15,14 @@ defmodule T2chatbackendWeb.Router do
     get "/verify", AuthController, :verify_token
   end
 
-  # scope "/api", T2chatbackendWeb do
-  #   pipe_through [:api, T2chatbackendWeb.AuthPlug]
+  scope "/api", T2chatbackendWeb do
+    pipe_through [:api, T2chatbackendWeb.AuthPlug]
 
-  #   get "/me", UserController, :me
-  #   get "/users", UserController, :index
-  #   put "/users", UserController, :update
-  #   delete "/users", UserController, :delete
-  # end
+    # get "/me", UserController, :me
+    # get "/users", UserController, :index
+    # put "/users", UserController, :update
+    # delete "/users", UserController, :delete
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:t2chatbackend, :dev_routes) do
