@@ -45,8 +45,6 @@ defmodule T2chatbackendWeb.AuthController do
   Đăng nhập user: xác thực với Supabase + lấy thông tin từ DB
   """
   def login(conn, %{"email" => email, "password" => password} = params) do
-    IO.inspect(password, label: "LOGIN")
-
     with {:ok,
           %{"access_token" => access_token, "refresh_token" => refresh_token, "user" => supa_user}} <-
            Supabase.login_user(params),

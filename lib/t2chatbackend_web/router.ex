@@ -24,6 +24,15 @@ defmodule T2chatbackendWeb.Router do
     # delete "/users", UserController, :delete
   end
 
+  scope "/api", T2chatbackendWeb do
+    pipe_through :api
+
+    get "/invites", InviteController, :index
+    post "/invites", InviteController, :create
+    post "/invites/:id/accept", InviteController, :accept
+    post "/invites/:id/reject", InviteController, :reject
+  end
+
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:t2chatbackend, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put

@@ -79,8 +79,6 @@ defmodule T2chatbackend.Auth.Supabase do
   end
 
   def login_user(%{"email" => email, "password" => password}) do
-    IO.inspect(email, label: "EMAIL")
-    IO.inspect(password, label: "PASSWORD")
     url = "#{supabase_url()}/auth/v1/token?grant_type=password"
 
     headers = [
